@@ -18,8 +18,8 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, requireAdmin 
     return <Navigate to="/login" replace />;
   }
 
-  // Verificar si es admin usando rolId (1 = ADMIN) o rol string
-  const isAdmin = user.rolId === 1 || user.rol === 'ADMINISTRADOR' || user.rol === 'ADMIN';
+  // Verificar si es admin usando rolId (0 = ADMIN) o rol string
+  const isAdmin = user.rolId === 0 || user.rol === 'admin' || user.rol === 'ADMINISTRADOR' || user.rol === 'ADMIN';
   
   if (requireAdmin && !isAdmin) {
     return <Navigate to="/" replace />;

@@ -1,8 +1,8 @@
-// src/services/api.ts
+
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: 'http://18.218.21.107:8181',
   headers: { 'Content-Type': 'application/json' }
 });
 

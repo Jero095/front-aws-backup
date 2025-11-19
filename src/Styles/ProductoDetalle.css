@@ -1,0 +1,375 @@
+/* src/Styles/ProductoDetalle.css */
+
+.producto-detalle-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: #666;
+}
+
+.breadcrumb a {
+  color: #0066c0;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #c45500;
+  text-decoration: underline;
+}
+
+/* Mensaje Banner */
+.message-banner {
+  background: #dff0d8;
+  border: 1px solid #d6e9c6;
+  color: #3c763d;
+  padding: 12px 20px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Contenedor principal */
+.producto-detalle-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* Sección de imagen */
+.producto-imagen-section {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.imagen-principal {
+  background: #f5f5f5;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.imagen-principal img {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.imagen-principal img:hover {
+  transform: scale(1.05);
+}
+
+/* Sección de información */
+.producto-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.producto-titulo {
+  font-size: 28px;
+  font-weight: 600;
+  color: #0f1111;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.producto-categoria {
+  display: flex;
+  gap: 8px;
+}
+
+.categoria-badge {
+  background: #e7f3ff;
+  color: #0066c0;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Precio */
+.producto-precio-section {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #ff9900;
+}
+
+.precio-principal {
+  font-size: 32px;
+  font-weight: 700;
+  color: #b12704;
+  margin-bottom: 8px;
+}
+
+.precio-info {
+  font-size: 14px;
+}
+
+.stock-disponible {
+  color: #007600;
+  font-weight: 600;
+}
+
+.stock-agotado {
+  color: #b12704;
+  font-weight: 600;
+}
+
+/* Descripción */
+.producto-descripcion {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.producto-descripcion h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #0f1111;
+}
+
+.producto-descripcion p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Acciones */
+.producto-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.cantidad-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cantidad-selector label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #0f1111;
+}
+
+.cantidad-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-cantidad {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #d5d9d9;
+  background: #fff;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cantidad:hover:not(:disabled) {
+  background: #f7f7f7;
+  border-color: #aaa;
+}
+
+.btn-cantidad:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cantidad-display {
+  min-width: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cantidad-info {
+  font-size: 12px;
+  color: #666;
+  margin-left: 8px;
+}
+
+.precio-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #f7f7f7;
+  border-radius: 6px;
+}
+
+.precio-total .label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f1111;
+}
+
+.precio-total .valor {
+  font-size: 24px;
+  font-weight: 700;
+  color: #b12704;
+}
+
+/* Botones de compra */
+.botones-compra {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-agregar-carrito {
+  background: #ffd814;
+  border: 1px solid #fcd200;
+  color: #0f1111;
+}
+
+.btn-agregar-carrito:hover {
+  background: #f7ca00;
+}
+
+.btn-comprar-ahora {
+  background: #ff9900;
+  border: 1px solid #ff8800;
+}
+
+.btn-comprar-ahora:hover {
+  background: #fa8900;
+}
+
+.producto-no-disponible {
+  padding: 24px;
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.producto-no-disponible p {
+  margin-bottom: 16px;
+  color: #856404;
+  font-weight: 500;
+}
+
+/* Información adicional */
+.producto-info-adicional {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #ddd;
+}
+
+.info-card {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  background: #f7f7f7;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.info-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.info-content h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #0f1111;
+}
+
+.info-content p {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+/* Error page */
+.error-page {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.error-page h2 {
+  margin-bottom: 24px;
+  color: #b12704;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 18px;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .producto-detalle-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .producto-imagen-section {
+    position: static;
+  }
+
+  .producto-titulo {
+    font-size: 22px;
+  }
+
+  .precio-principal {
+    font-size: 26px;
+  }
+
+  .producto-info-adicional {
+    grid-template-columns: 1fr;
+  }
+
+  .botones-compra {
+    position: sticky;
+    bottom: 0;
+    background: #fff;
+    padding: 16px;
+    margin: 0 -20px -20px;
+    border-top: 1px solid #ddd;
+    z-index: 10;
+  }
+}

@@ -1,5 +1,6 @@
 // src/pages/Producto.tsx
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import productService from '../services/product.service';
 import cartService from '../services/cart.service';
@@ -65,12 +66,16 @@ const Productos: React.FC = () => {
         ) : (
           productos.map(producto => (
             <div key={producto.id} className="producto-card">
-              {producto.imagenUrl && (
-                <img src={producto.imagenUrl} alt={producto.nombre} />
-              )}
-              <h3>{producto.nombre}</h3>
-              <p className="descripcion">{producto.descripcion}</p>
-              <p className="precio">${producto.precio.toLocaleString('es-ES')}</p>
+              <Link to={`/producto/${producto.id}`} className="producto-link">
+                {producto.imagenUrl ? (
+                  <img src={producto.imagenUrl} alt={producto.nombre} />
+                ) : (
+                  <img src="https://via.placeholder.com/300x300?text=Sin+Imagen" alt={producto.nombre} />
+                )}
+                <h3>{producto.nombre}</h3>
+                <p className="descripcion">{producto.descripcion}</p>
+                <p className="precio">${producto.precio.toLocaleString('es-ES')}</p>
+              </Link>
               <p className="stock">Stock: {producto.stock}</p>
               {producto.categoria && (
                 <p className="categoria">Categoría: {producto.categoria.nombre}</p>

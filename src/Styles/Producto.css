@@ -37,6 +37,17 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.producto-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.producto-link:hover h3 {
+  color: #667eea;
+}
+
 .producto-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);

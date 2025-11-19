@@ -53,8 +53,8 @@ const Home: React.FC = () => {
     }
   };
 
-  // Vista para ADMINISTRADORES (rolId === 1)
-  const isAdmin = user && (user.rolId === 1 || user.rol === 'ADMINISTRADOR' || user.rol === 'ADMIN');
+  // Vista para ADMINISTRADORES (rolId === 0)
+  const isAdmin = user && (user.rolId === 0 || user.rol === 'admin' || user.rol === 'ADMINISTRADOR' || user.rol === 'ADMIN');
   
   if (isAdmin) {
     return (
@@ -165,51 +165,53 @@ const Home: React.FC = () => {
           <div className="products-grid">
             {productos.map((producto) => (
               <div key={producto.id} className="product-card">
-                <div className="product-image-container">
-                  {producto.imagenUrl ? (
-                    <img 
-                      src={producto.imagenUrl} 
-                      alt={producto.nombre}
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300x300?text=Sin+Imagen';
-                      }}
-                    />
-                  ) : (
-                    <div className="no-image">
-                      <span>📦</span>
-                      <p>Sin imagen</p>
-                    </div>
-                  )}
-                  {producto.stock < 10 && producto.stock > 0 && (
-                    <span className="stock-badge low-stock">¡Últimas unidades!</span>
-                  )}
-                  {producto.stock === 0 && (
-                    <span className="stock-badge out-stock">Agotado</span>
-                  )}
-                </div>
+                <Link to={`/producto/${producto.id}`} className="product-link">
+                  <div className="product-image-container">
+                    {producto.imagenUrl ? (
+                      <img 
+                        src={producto.imagenUrl} 
+                        alt={producto.nombre}
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300x300?text=Sin+Imagen';
+                        }}
+                      />
+                    ) : (
+                      <div className="no-image">
+                        <span>📦</span>
+                        <p>Sin imagen</p>
+                      </div>
+                    )}
+                    {producto.stock < 10 && producto.stock > 0 && (
+                      <span className="stock-badge low-stock">¡Últimas unidades!</span>
+                    )}
+                    {producto.stock === 0 && (
+                      <span className="stock-badge out-stock">Agotado</span>
+                    )}
+                  </div>
 
-                <div className="product-info">
-                  <h3 className="product-name">{producto.nombre}</h3>
-                  <p className="product-description">{producto.descripcion}</p>
-                  
-                  {producto.categoria && (
-                    <span className="product-category">{producto.categoria.nombre}</span>
-                  )}
+                  <div className="product-info">
+                    <h3 className="product-name">{producto.nombre}</h3>
+                    <p className="product-description">{producto.descripcion}</p>
+                    
+                    {producto.categoria && (
+                      <span className="product-category">{producto.categoria.nombre}</span>
+                    )}
 
-                  <div className="product-footer">
                     <div className="price-section">
                       <span className="price">${producto.precio.toLocaleString('es-CO')}</span>
                       <span className="stock-info">Stock: {producto.stock}</span>
                     </div>
-
-                    <button 
-                      onClick={() => handleAddToCart(producto.id!, producto.precio)}
-                      className="btn-add-cart"
-                      disabled={producto.stock === 0}
-                    >
-                      {producto.stock === 0 ? 'Agotado' : '🛒 Agregar'}
-                    </button>
                   </div>
+                </Link>
+
+                <div className="product-footer">
+                  <button 
+                    onClick={() => handleAddToCart(producto.id!, producto.precio)}
+                    className="btn-add-cart"
+                    disabled={producto.stock === 0}
+                  >
+                    {producto.stock === 0 ? 'Agotado' : '🛒 Agregar'}
+                  </button>
                 </div>
               </div>
             ))}

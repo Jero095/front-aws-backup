@@ -5,7 +5,7 @@ export interface User {
   nombre: string;
   apellido: string;
   rol: string;        // 'CLIENTE' | 'ADMINISTRADOR' | 'ADMIN'
-  rolId?: number;     // 1 = ADMIN, 2 = CLIENTE
+  rolId?: number;     // 0 = ADMIN, 1 = CLIENTE
 }
 
 export interface LoginDTO {
@@ -16,7 +16,8 @@ export interface LoginDTO {
 export interface RegistroUsuarioDTO {
   nombre: string;
   apellido: string;
-  email: string;
+  correo: string;     // El backend espera 'correo', no 'email'
   password: string;
   telefono?: string;
+  rol: string;        // "cliente" o "admin" (por defecto "cliente")
 }

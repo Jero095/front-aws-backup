@@ -18,8 +18,8 @@ const MonitoreoPedidos: React.FC = () => {
       console.log('[MONITOREO] Pedidos cargados:', data);
       console.log('[MONITOREO] Usuario actual:', user);
       
-      // Si es admin (rolId === 1), mostrar TODOS los pedidos
-      const isAdmin = user && (user.rolId === 1 || user.rol === 'ADMINISTRADOR' || user.rol === 'ADMIN');
+      // Si es admin (rolId === 0), mostrar TODOS los pedidos
+      const isAdmin = user && (user.rolId === 0 || user.rol === 'admin' || user.rol === 'ADMINISTRADOR' || user.rol === 'ADMIN');
       
       if (isAdmin) {
         console.log('[MONITOREO] Usuario es admin, mostrando todos los pedidos');
@@ -67,7 +67,7 @@ const MonitoreoPedidos: React.FC = () => {
     return `$${(num || 0).toLocaleString('es-CO')}`;
   };
 
-  const isAdmin = user && (user.rolId === 1 || user.rol === 'ADMINISTRADOR' || user.rol === 'ADMIN');
+  const isAdmin = user && (user.rolId === 0 || user.rol === 'ADMINISTRADOR' || user.rol === 'ADMIN');
 
   const handleExportPDF = () => {
     pdfService.generateOrdersReport(pedidos);

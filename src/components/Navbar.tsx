@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
             <Link to="/login">Iniciar Sesión</Link>
             <Link to="/register">Registrarse</Link>
           </>
-        ) : user.rol === 'ADMINISTRADOR' || user.rol === 'ADMIN' ? (
+        ) : user.rolId === 0 || user.rol === 'admin' || user.rol === 'ADMINISTRADOR' || user.rol === 'ADMIN' ? (
           // Administrador
           <>
             <Link to="/dashboard">Dashboard</Link>

@@ -8,9 +8,10 @@ const Register: React.FC = () => {
   const [formData, setFormData] = useState<RegistroUsuarioDTO>({
     nombre: '',
     apellido: '',
-    email: '',
+    correo: '',
     password: '',
-    telefono: ''
+    telefono: '',
+    rol: 'cliente'  // Por defecto todos los usuarios que se registran son CLIENTES
   });
   const [error, setError] = useState('');
   const { register } = useAuth();
@@ -67,12 +68,12 @@ const Register: React.FC = () => {
           </div>
           
           <div className="form-group">
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="correo">Email:</label>
             <input
               type="email"
-              id="email"
-              name="email"
-              value={formData.email}
+              id="correo"
+              name="correo"
+              value={formData.correo}
               onChange={handleChange}
               required
             />
