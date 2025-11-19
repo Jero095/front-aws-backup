@@ -1,0 +1,211 @@
+/* src/Styles/MonitoreoPedidos.css */
+.monitoreo-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f5f7fa;
+  min-height: calc(100vh - 80px);
+}
+
+.monitoreo-header {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.monitoreo-header > div {
+  flex: 1;
+}
+
+.monitoreo-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #2d3748;
+}
+
+.monitoreo-header p {
+  font-size: 1.1rem;
+  color: #718096;
+  margin: 0;
+}
+
+.btn-export-pdf {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.btn-export-pdf:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+}
+
+.table-wrapper {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.monitoreo-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.monitoreo-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.monitoreo-table th {
+  padding: 1.2rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.monitoreo-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #2d3748;
+}
+
+.monitoreo-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.monitoreo-table tbody tr:hover {
+  background-color: #f7fafc;
+}
+
+.monitoreo-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.id-cell {
+  font-weight: 700;
+  color: #667eea;
+  font-size: 1rem;
+}
+
+.client-cell {
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.address-cell {
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.total-cell {
+  font-weight: 700;
+  color: #667eea;
+  font-size: 1.1rem;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.status-listo {
+  background-color: #d1f2eb;
+  color: #0e6655;
+}
+
+.status-badge.status-pendiente {
+  background-color: #fef5e7;
+  color: #d68910;
+}
+
+.status-badge.status-enviado {
+  background-color: #d6eaf8;
+  color: #1b4f72;
+}
+
+.status-badge.status-entregado {
+  background-color: #d5f4e6;
+  color: #0b5345;
+}
+
+.status-badge.status-cancelado {
+  background-color: #fadbd8;
+  color: #922b21;
+}
+
+.empty-state {
+  background: white;
+  padding: 4rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.empty-state p {
+  font-size: 1.3rem;
+  color: #a0aec0;
+  margin: 0;
+}
+
+.loading {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-size: 1.3rem;
+  color: #718096;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .monitoreo-page {
+    padding: 1rem;
+  }
+
+  .monitoreo-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  .monitoreo-table {
+    font-size: 0.85rem;
+  }
+
+  .monitoreo-table th,
+  .monitoreo-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .address-cell {
+    max-width: 150px;
+  }
+}

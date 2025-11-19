@@ -1,0 +1,1227 @@
+{
+	"info": {
+		"_postman_id": "5235a4ee-b6cf-48ec-b55e-f1ad29446cc1",
+		"name": "Hydrosys",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40778035",
+		"_collection_link": "https://roomiesuentornos.postman.co/workspace/RoomiesU_Entornos-Workspace~4b782c6a-7c3a-4cd6-896a-de3a6794f46a/collection/40778035-5235a4ee-b6cf-48ec-b55e-f1ad29446cc1?action=share&source=collection_link&creator=40778035"
+	},
+	"item": [
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Registro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Ricardo\",\n  \"correo\": \"rich3ar@d123\",\n  \"apellido\": \"pepe\",\n  \"password\": \"admin123\",\n  \"rol\": \"admin\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/auth/register",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@miapp.com\",\n    \"password\": \"adm0621\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/usuarios",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "Get all products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/productos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Producto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"cilindro\",\n  \"idLote\": 1,\n  \"precio\": 25,\n  \"stock\": 100,\n  \"descripcion\": \"Descripción del producto\",\n  \"categoriaNombre\": \"inflamables\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/productos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\":\"crema\",\n    \"precio\": 3000,\n    \"stock\":1,\n    \"descripcion\":\"s\",\n    \"categoriaNombre\": \"cremas\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/productos/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\":\"crema\",\n    \"precio\": 302200,\n    \"stock\":2,\n    \"descripcion\":\"s\",\n    \"categoriaNombre\": \"cremas\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/productos/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBtaWFwcC5jb20iLCJpYXQiOjE3NTAyODk4MDIsImV4cCI6MTc1MDMyNTgwMn0.lPKTFsE57RYFbuxwbdqgIEqa1as1Ug3Y-HykoGuoWMg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\":\"crema\",\n    \"precio\": 302200,\n    \"stock\":2,\n    \"descripcion\":\"s\",\n    \"categoriaNombre\": \"cremas\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/productos/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categoria",
+			"item": [
+				{
+					"name": "Get categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/categorias",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\":\"inflamables\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/categorias",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\":\"Toxico\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/categorias/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categorias",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/categorias/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categorias",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MetodoPago",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/metodospago",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"metodospago"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombrePago\":\"efectivo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/metodospago",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"metodospago"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombrePago\":\"paypal\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/metodospago/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"metodospago",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/metodospago/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"metodospago",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rol",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/roles",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dirección",
+			"item": [
+				{
+					"name": "Get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/direcciones",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"direcciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idUsuario\": 1,\n  \"departamento\": \"Santander\",\n  \"ciudad\": \"Bucaramanga\",\n  \"pais\": \"Colombia\",\n  \"direccion\": \"Calle 123 #45-67\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/direcciones",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"direcciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/pedidos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"usuarioId\": 1,\n  \"metodoPagoId\": 1,\n  \"estadoPedido\": \"PENDIENTE\",\n  \"direccionEnvio\": \"Calle 45 #12-34, Bucaramanga, Santander\",\n  \"totalPedido\": 1250.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/pedidos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DetalleCarrito",
+			"item": [
+				{
+					"name": "AgregarItem",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"usuarioId\":1,\n    \"productoId\":1,\n    \"cantidadProducto\":100,\n    \"precioUnitario\":10000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/carrito",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"carrito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/carrito/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"carrito",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Item by id",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "VaciarCarro",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/carrito/vaciar/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"carrito",
+								"vaciar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DetallePedido",
+			"item": [
+				{
+					"name": "Crear",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pedidoId\":1,\n    \"productoId\":1,\n    \"cantidadProducto\":100,\n    \"precioUnitario\":10000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/detalles",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"detalles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/detalles/pedido/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"detalles",
+								"pedido",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lote",
+			"item": [
+				{
+					"name": "create lote",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"proveedor\": \"Proveedor ABC S.A.\",\n  \"fechaVencimiento\": \"2025-12-31T23:59:59\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/lotes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"lotes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get lotes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/lotes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"lotes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"requests": {},
+				"exec": [
+					"// Hydrosys Collection-wide Test Script",
+					"// This script runs after every request in the collection",
+					"",
+					"// Helper: Map request names to expected status codes and key fields",
+					"const requestExpectations = {",
+					"  // Carrito",
+					"  \"AgregarItem\": { codes: [200, 201], keys: [\"id\", \"productoId\", \"cantidad\"] },",
+					"  \"Get by id user\": { codes: [200], keys: [\"id\", \"usuarioId\", \"items\"] },",
+					"  \"VaciarCarro\": { codes: [200, 204] },",
+					"  \"Eliminar Item by id\": { codes: [200, 204] },",
+					"",
+					"  // Categorias",
+					"  \"Crear Categoria\": { codes: [201, 200], keys: [\"id\", \"nombre\"] },",
+					"  \"Get categoria\": { codes: [200], keys: [\"categorias\"] },",
+					"  \"Actualizar\": { codes: [200, 204] },",
+					"  \"eliminar\": { codes: [200, 204] },",
+					"",
+					"  // Direcciones",
+					"  \"Crear\": { codes: [201, 200], keys: [\"id\", \"usuarioId\", \"direccion\"] },",
+					"  \"Get all\": { codes: [200], keys: [\"direcciones\"] },",
+					"  \"Get by id\": { codes: [200], keys: [\"id\", \"usuarioId\", \"direccion\"] },",
+					"  \"actualizar\": { codes: [200, 204] },",
+					"  \"Eliminar\": { codes: [200, 204] },",
+					"",
+					"  // DetallePedido",
+					"  \"Crear\": { codes: [201, 200], keys: [\"id\", \"pedidoId\", \"productoId\"] },",
+					"  \"Get by id\": { codes: [200], keys: [\"id\", \"pedidoId\", \"productoId\"] },",
+					"  \"Eliminar\": { codes: [200, 204] },",
+					"",
+					"  // Lotes",
+					"  \"create lote\": { codes: [201, 200], keys: [\"id\", \"productoId\", \"cantidad\"] },",
+					"  \"Get lotes\": { codes: [200], keys: [\"lotes\"] },",
+					"",
+					"  // MetodoPago",
+					"  \"Crear\": { codes: [201, 200], keys: [\"id\", \"usuarioId\", \"tipo\"] },",
+					"  \"Get all\": { codes: [200], keys: [\"metodos\"] },",
+					"  \"Actualizar\": { codes: [200, 204] },",
+					"  \"eliminar\": { codes: [200, 204] },",
+					"",
+					"  // Pedido",
+					"  \"Crear\": { codes: [201, 200], keys: [\"id\", \"usuarioId\", \"total\"] },",
+					"  \"Get all\": { codes: [200], keys: [\"pedidos\"] },",
+					"  \"Get by id\": { codes: [200], keys: [\"id\", \"usuarioId\", \"total\"] },",
+					"  \"Eliminar\": { codes: [200, 204] },",
+					"",
+					"  // Productos",
+					"  \"Crear Producto\": { codes: [201, 200], keys: [\"id\", \"nombre\", \"precio\"] },",
+					"  \"Get all products\": { codes: [200], keys: [\"productos\"] },",
+					"  \"Get by id\": { codes: [200], keys: [\"id\", \"nombre\", \"precio\"] },",
+					"  \"Actualizar\": { codes: [200, 204] },",
+					"  \"eliminar\": { codes: [200, 204] },",
+					"",
+					"  // Rol",
+					"  \"Crear\": { codes: [201, 200], keys: [\"id\", \"nombre\"] },",
+					"  \"Get all\": { codes: [200], keys: [\"roles\"] },",
+					"  \"Get by id\": { codes: [200], keys: [\"id\", \"nombre\"] },",
+					"  \"actualizar\": { codes: [200, 204] },",
+					"  \"Eliminar\": { codes: [200, 204] },",
+					"",
+					"  // Usuario",
+					"  \"Registro\": { codes: [201, 200], keys: [\"id\", \"email\"] },",
+					"  \"Login\": { codes: [200], keys: [\"token\", \"usuario\"] },",
+					"  \"GET all users\": { codes: [200], keys: [\"usuarios\"] },",
+					"};",
+					"",
+					"// Utility: Get expectations for current request",
+					"function getExpectations() {",
+					"  const name = pm.info.requestName;",
+					"  return requestExpectations[name] || {};",
+					"}",
+					"",
+					"const { codes = [200], keys = [] } = getExpectations();",
+					"",
+					"// 1. Status code test",
+					"pm.test(\"Status code is valid\", function () {",
+					"  pm.expect(codes).to.include(pm.response.code);",
+					"});",
+					"",
+					"// 2. Content-Type header",
+					"pm.test(\"Content-Type is present\", function () {",
+					"  pm.response.to.have.header(\"Content-Type\");",
+					"});",
+					"",
+					"// 3. Structure/key fields test (if applicable and response is JSON)",
+					"if (keys.length && pm.response.headers.get(\"Content-Type\") && pm.response.headers.get(\"Content-Type\").includes(\"application/json\")) {",
+					"  let jsonData;",
+					"  try {",
+					"    jsonData = pm.response.json();",
+					"    pm.test(\"Response has expected key fields\", function () {",
+					"      keys.forEach(function (key) {",
+					"        pm.expect(jsonData).to.have.property(key);",
+					"      });",
+					"    });",
+					"  } catch (e) {",
+					"    pm.test(\"Response is valid JSON\", function () {",
+					"      pm.expect.fail(\"Response is not valid JSON\");",
+					"    });",
+					"  }",
+					"}",
+					"",
+					"// 4. Error handling test (for 4xx/5xx)",
+					"pm.test(\"Handles error responses gracefully\", function () {",
+					"  if (pm.response.code >= 400) {",
+					"    // Should have error message or details",
+					"    let body = pm.response.text();",
+					"    pm.expect(body.length).to.be.greaterThan(0);",
+					"    if (pm.response.headers.get(\"Content-Type\") && pm.response.headers.get(\"Content-Type\").includes(\"application/json\")) {",
+					"      try {",
+					"        let errJson = pm.response.json();",
+					"        pm.expect(errJson).to.have.any.keys(\"error\", \"message\", \"detail\");",
+					"      } catch (e) {",
+					"        pm.expect.fail(\"Error response is not valid JSON\");",
+					"      }",
+					"    }",
+					"  }",
+					"});",
+					"",
+					"// 5. Response time",
+					"pm.test(\"Response time is less than 2s\", function () {",
+					"  pm.expect(pm.response.responseTime).to.be.below(2000);",
+					"});",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": ""
+		},
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}
