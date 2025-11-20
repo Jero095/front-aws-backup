@@ -14,9 +14,18 @@ const Dashboard: React.FC = () => {
   const [pedidos, setPedidos] = useState<Pedido[]>([]);
   const [productos, setProductos] = useState<Producto[]>([]);
   const [loading, setLoading] = useState(true);
+  const [lastUpdate, setLastUpdate] = useState<Date>(new Date());
 
   useEffect(() => {
     loadData();
+    
+    // Recargar datos cada 60 segundos (60000 ms)
+    const interval = setInterval(() => {
+      loadDataSilently();
+    }, 60000);
+
+    // Limpiar el intervalo cuando el componente se desmonte
+    return () => clearInterval(interval);
   }, []);
 
   const loadData = async () => {
@@ -28,10 +37,27 @@ const Dashboard: React.FC = () => {
       ]);
       setPedidos(pedidosData);
       setProductos(productosData);
+      setLastUpdate(new Date());
     } catch (error) {
       console.error('[DASHBOARD] Error cargando datos:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  // Carga silenciosa sin mostrar el loading
+  const loadDataSilently = async () => {
+    try {
+      console.log('[DASHBOARD] Actualizando datos automáticamente...');
+      const [pedidosData, productosData] = await Promise.all([
+        orderService.getOrders(),
+        productService.getProducts()
+      ]);
+      setPedidos(pedidosData);
+      setProductos(productosData);
+      setLastUpdate(new Date());
+    } catch (error) {
+      console.error('[DASHBOARD] Error en actualización automática:', error);
     }
   };
 
@@ -90,8 +116,14 @@ const Dashboard: React.FC = () => {
         <div>
           <h1>📊 Dashboard Administrativo</h1>
           <p>Bienvenido, {user?.nombre} {user?.apellido}</p>
+          <p className="last-update">
+            Última actualización: {lastUpdate.toLocaleTimeString('es-ES')}
+          </p>
         </div>
         <div className="export-buttons">
+          <button onClick={loadData} className="btn-export info" title="Actualizar ahora">
+            🔄 Actualizar
+          </button>
           <button onClick={handleExportDashboard} className="btn-export primary">
             📄 Exportar Dashboard
           </button>

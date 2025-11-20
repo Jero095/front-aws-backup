@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import orderService from '../services/order.service';
 import type { Pedido } from '../types/order';
+import '../Styles/Pedidos.css';
 
 const Pedidos: React.FC = () => {
   const { user } = useAuth();
@@ -58,6 +59,7 @@ const Pedidos: React.FC = () => {
   return (
     <div className="pedidos-page">
       <h1>Mis Pedidos</h1>
+
       <div className="orders-list">
         {pedidos.map(pedido => (
           <div className="order-card" key={pedido.id}>
@@ -73,11 +75,16 @@ const Pedidos: React.FC = () => {
               ${(pedido.totalPedido || 0).toLocaleString('es-ES')}
             </div>
 
-            <button onClick={() => setExpandedId(
-              expandedId === pedido.id ? null : (pedido.id || null)
-            )}>
-              {expandedId === pedido.id ? 'Ocultar' : 'Ver'} detalles
-            </button>
+            <div className="order-actions">
+              <button 
+                className="btn-details"
+                onClick={() => setExpandedId(
+                  expandedId === pedido.id ? null : (pedido.id || null)
+                )}
+              >
+                {expandedId === pedido.id ? '👁️ Ocultar' : '👁️ Ver'} detalles
+              </button>
+            </div>
 
             {expandedId === pedido.id && (
               <div className="order-details">

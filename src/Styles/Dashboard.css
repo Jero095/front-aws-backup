@@ -32,6 +32,13 @@
   color: #718096;
 }
 
+.last-update {
+  font-size: 0.9rem !important;
+  color: #a0aec0 !important;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
 .export-buttons {
   display: flex;
   gap: 0.75rem;
@@ -69,6 +76,11 @@
 
 .btn-export.tertiary {
   background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+  color: white;
+}
+
+.btn-export.info {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
   color: white;
 }
 
@@ -266,6 +278,20 @@
 .status-badge.status-cancelado {
   background-color: #fadbd8;
   color: #922b21;
+}
+
+.status-badge.status-confirmado {
+  background-color: #d6eaf8;
+  color: #1b4f72;
+}
+
+.status-badge.status-en-proceso {
+  background-color: #e0e7ff;
+  color: #4338ca;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .stock-badge {

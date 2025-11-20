@@ -11,6 +11,7 @@ import Cart from './pages/Cart';
 import Pedidos from './pages/Pedidos';
 import MonitoreoPedidos from './pages/MonitoreoPedidos';
 import Dashboard from './pages/Dashboard';
+import DashboardSupabase from './pages/DashboardSupabase';
 import EditarPerfil from './pages/EditarPerfil';
 import './App.css';
 
@@ -60,6 +61,15 @@ function App() {
                 element={
                   <ProtectedRoute requireAdmin={true}>
                     <Dashboard />
+                  </ProtectedRoute>
+                } 
+              />
+              
+              <Route 
+                path="/dashboard-supabase" 
+                element={
+                  <ProtectedRoute requireAdmin={true}>
+                    <DashboardSupabase />
                   </ProtectedRoute>
                 } 
               />

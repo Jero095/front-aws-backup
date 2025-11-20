@@ -37,6 +37,19 @@ class OrderService {
     return res.data;
   }
 
+  async updateOrderStatus(id: number, estado: string): Promise<Pedido> {
+    console.log(`[ORDER-SERVICE] Actualizando estado del pedido ${id} a: ${estado}`);
+    try {
+      // Intentar con PATCH enviando solo el estado
+      const res = await API.patch<Pedido>(`/api/pedidos/${id}`, { estadoPedido: estado });
+      console.log('[ORDER-SERVICE] Estado actualizado exitosamente:', res.data);
+      return res.data;
+    } catch (error) {
+      console.error('[ORDER-SERVICE] Error actualizando estado:', error);
+      throw error;
+    }
+  }
+
   async deleteOrder(id: number): Promise<void> {
     await API.delete(`/api/pedidos/${id}`);
   }

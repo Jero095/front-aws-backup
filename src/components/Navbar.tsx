@@ -20,8 +20,8 @@ const Navbar: React.FC = () => {
           // Administrador
           <>
             <Link to="/dashboard">Dashboard</Link>
+            <Link to="/dashboard-supabase">Dashboard Supabase</Link>
             <Link to="/productos">Productos</Link>
-            <Link to="/pedidos">Pedidos</Link>
             <Link to="/perfil">Perfil</Link>
             <button onClick={logout}>Cerrar Sesión</button>
           </>

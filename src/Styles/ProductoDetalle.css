@@ -1,5 +1,111 @@
 /* src/Styles/ProductoDetalle.css */
 
+/* ==================== NOTIFICATION POPUP ==================== */
+.notification-popup {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 9999;
+  min-width: 320px;
+  max-width: 450px;
+  animation: slideInRight 0.4s ease-out, fadeOut 0.3s ease-in 2.7s;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  background: white;
+  position: relative;
+}
+
+.notification-popup.success .notification-content {
+  border-left: 5px solid #48bb78;
+  background: linear-gradient(135deg, #f0fff4 0%, #ffffff 100%);
+}
+
+.notification-popup.error .notification-content {
+  border-left: 5px solid #f56565;
+  background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+}
+
+.notification-popup.warning .notification-content {
+  border-left: 5px solid #ed8936;
+  background: linear-gradient(135deg, #fffaf0 0%, #ffffff 100%);
+}
+
+.notification-icon {
+  font-size: 2rem;
+  line-height: 1;
+  animation: bounceIn 0.6s ease-out;
+}
+
+.notification-text {
+  flex: 1;
+}
+
+.notification-message {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3748;
+  line-height: 1.4;
+}
+
+.notification-close {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #718096;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.notification-close:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #2d3748;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(400px);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .producto-detalle-page {
   max-width: 1200px;
   margin: 0 auto;
@@ -342,6 +448,26 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .notification-popup {
+    top: 80px;
+    right: 10px;
+    left: 10px;
+    min-width: auto;
+    max-width: none;
+  }
+
+  .notification-content {
+    padding: 1rem;
+  }
+
+  .notification-icon {
+    font-size: 1.5rem;
+  }
+
+  .notification-message {
+    font-size: 0.9rem;
+  }
+
   .producto-detalle-container {
     grid-template-columns: 1fr;
     gap: 24px;

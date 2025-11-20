@@ -114,10 +114,23 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Message Alert */}
+      {/* Notification Popup */}
       {message && (
-        <div className={`alert-message ${message.includes('✅') ? 'success' : message.includes('❌') ? 'error' : 'warning'}`}>
-          {message}
+        <div className={`notification-popup ${message.includes('✅') ? 'success' : message.includes('❌') ? 'error' : 'warning'}`}>
+          <div className="notification-content">
+            <span className="notification-icon">
+              {message.includes('✅') ? '✅' : message.includes('❌') ? '❌' : '⚠️'}
+            </span>
+            <div className="notification-text">
+              <p className="notification-message">{message.replace(/[✅❌⚠]/g, '').trim()}</p>
+            </div>
+            <button 
+              className="notification-close" 
+              onClick={() => setMessage('')}
+            >
+              ✕
+            </button>
+          </div>
         </div>
       )}
 

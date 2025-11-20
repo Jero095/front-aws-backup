@@ -117,7 +117,25 @@ const ProductoDetalle: React.FC = () => {
         <span>{producto.nombre}</span>
       </div>
 
-      {message && <div className="message-banner">{message}</div>}
+      {/* Notification Popup */}
+      {message && (
+        <div className={`notification-popup ${message.includes('✅') ? 'success' : message.includes('❌') ? 'error' : 'warning'}`}>
+          <div className="notification-content">
+            <span className="notification-icon">
+              {message.includes('✅') ? '✅' : message.includes('❌') ? '❌' : '⚠️'}
+            </span>
+            <div className="notification-text">
+              <p className="notification-message">{message.replace(/[✅❌⚠]/g, '').trim()}</p>
+            </div>
+            <button 
+              className="notification-close" 
+              onClick={() => setMessage('')}
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
 
       <div className="producto-detalle-container">
         {/* Imagen del producto */}
